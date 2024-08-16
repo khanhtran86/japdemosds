@@ -1,11 +1,19 @@
 package com.samsung.jpademo.repositories.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class Employee implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +22,7 @@ public class Employee {
     @Column(name = "fullname", length = 120, nullable = false)
     private String name;
 
-    @Column(columnDefinition = "bit default 0") //Cách 1
+    //@Column(columnDefinition = "bit default 0") //Cách 1
     @ColumnDefault("false") //Caách 2
     private Boolean gender;
     @Column(length = 150)
