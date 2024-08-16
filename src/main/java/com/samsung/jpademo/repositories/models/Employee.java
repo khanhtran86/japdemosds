@@ -23,7 +23,7 @@ public class Employee implements Serializable {
     private String name;
 
     //@Column(columnDefinition = "bit default 0") //Cách 1
-    @ColumnDefault("false") //Caách 2
+    @ColumnDefault("0") //Caách 2
     private Boolean gender;
     @Column(length = 150)
     private String email;

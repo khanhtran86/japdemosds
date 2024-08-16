@@ -10,4 +10,6 @@ public interface IEmployeeService {
     public Employee getEmployeeByID(Long id);
 
     public void AddEmployee(Employee employee);
+
+    public Employee getEmplyeeByEmail(String email);
 }

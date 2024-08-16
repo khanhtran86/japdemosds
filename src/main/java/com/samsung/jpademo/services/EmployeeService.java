@@ -23,6 +23,11 @@ public class EmployeeService implements IEmployeeService{
         return employeeRepository.findById(id).get();
     }
 
+    public Employee getEmplyeeByEmail(String email)
+    {
+        return employeeRepository.getEmployeeBySP(email);
+    }
+
     @Override
     public void AddEmployee(Employee employee)
     {

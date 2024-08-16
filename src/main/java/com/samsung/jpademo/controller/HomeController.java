@@ -1,6 +1,8 @@
 package com.samsung.jpademo.controller;
 
+import com.samsung.jpademo.repositories.models.Department;
 import com.samsung.jpademo.repositories.models.Employee;
+import com.samsung.jpademo.services.IDepartmentService;
 import com.samsung.jpademo.services.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import java.util.List;
 public class HomeController {
     @Autowired
     IEmployeeService employeeService;
+    @Autowired
+    IDepartmentService departmentService;
     @GetMapping("/")
     public ResponseEntity Index()
     {
@@ -27,8 +31,11 @@ public class HomeController {
 
         //return ResponseEntity.ok(employee);
 
+        /*
         Employee emp= Employee.builder().name("Samsung SDS").email("info@samsungsds.com").gender(true).build();
-        employeeService.AddEmployee(emp);
-        return ResponseEntity.ok("Added");
+        employeeService.AddEmployee(emp);*/
+        //Employee employee = employeeService.getEmplyeeByEmail("khanh.tx@live.com");
+        Department d = departmentService.getDepartmentById(1l);
+        return ResponseEntity.ok(d.getEmployees());
     }
 }
